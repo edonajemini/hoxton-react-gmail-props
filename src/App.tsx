@@ -1,13 +1,9 @@
 import { useState } from 'react'
-
 import initialEmails, { Email } from './data/emails'
-
 import './App.css'
 
 const getReadEmails = (emails: Email[]) => emails.filter(email => !email.read)
-
-const getStarredEmails = (emails: Email[]) =>
-  emails.filter(email => email.starred)
+const getStarredEmails = (emails: Email[]) =>emails.filter(email => email.starred)
 
 function App() {
   const [emails, setEmails] = useState(initialEmails)
@@ -16,7 +12,6 @@ function App() {
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
-
   const toggleStar = (targetEmail: Email) => {
     const updatedEmails = (emails: Array<Email>) =>
       emails.map(email =>
